@@ -1,12 +1,21 @@
 import { Facebook, Youtube, Instagram, Globe, Mail, Phone } from "lucide-react";
+import { FaFacebookF } from "react-icons/fa";
+import { AiOutlineFacebook, AiOutlineInstagram, AiOutlineYoutube } from "react-icons/ai";
+
+
 
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-gray-800 to-gray-900 text-white py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-center mb-8 sm:mb-10 lg:mb-12">
-          <button className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white font-bold text-2xl sm:text-3xl lg:text-4xl px-8 sm:px-12 lg:px-16 py-4 sm:py-5 lg:py-6 rounded-lg shadow-xl transition-all duration-300 tracking-wider w-full sm:w-auto">
+          <button>
+          <a
+          href="contact"
+          className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white font-bold text-2xl sm:text-3xl lg:text-4xl px-8 sm:px-12 lg:px-16 py-4 sm:py-5 lg:py-6 rounded-lg shadow-xl transition-all duration-300 tracking-wider w-full sm:w-auto">
+           
             GET IN TOUCH
+            </a>
           </button>
         </div>
 
@@ -42,20 +51,20 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="contact"
                   className="text-gray-300 hover:text-white transition-colors text-xs sm:text-base"
                 >
                   Contact Us
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="#"
                   className="text-gray-300 hover:text-white transition-colors text-xs sm:text-base"
                 >
                   Blog
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="#"
@@ -145,26 +154,26 @@ export default function Footer() {
             </h3>
             <div className="flex gap-3 sm:gap-4 mb-6 sm:mb-8 justify-center sm:justify-center lg:justify-start">
               <a
-                href="#"
-                className="bg-white text-gray-800 p-2 sm:p-3 rounded-full hover:bg-gray-200 transition-colors"
+                href="https://www.facebook.com/theshootingspot/"
+                className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 border-2 border-white rounded-full hover:bg-white hover:text-gray-800 transition-all"
               >
                 <Facebook size={18} className="sm:w-6 sm:h-6" />
               </a>
               <a
-                href="#"
-                className="bg-white text-gray-800 p-2 sm:p-3 rounded-full hover:bg-gray-200 transition-colors"
+                href="https://www.youtube.com/@theshootingspot/"
+                className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 border-2 border-white rounded-full hover:bg-white hover:text-gray-800 transition-all"
               >
-                <Youtube size={18} className="sm:w-6 sm:h-6" />
+                <AiOutlineYoutube size={18} className="sm:w-6 sm:h-6" />
               </a>
               <a
-                href="#"
-                className="bg-white text-gray-800 p-2 sm:p-3 rounded-full hover:bg-gray-200 transition-colors"
+                href="https://www.instagram.com/the_shooting_spot/"
+                className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 border-2 border-white rounded-full hover:bg-white hover:text-gray-800 transition-all"
               >
-                <Instagram size={18} className="sm:w-6 sm:h-6" />
+                <AiOutlineInstagram size={18} className="sm:w-6 sm:h-6" />
               </a>
               <a
-                href="#"
-                className="bg-white text-gray-800 p-2 sm:p-3 rounded-full hover:bg-gray-200 transition-colors"
+                href="https://shootingzonehyderabad.com/"
+                className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 border-2 border-white rounded-full hover:bg-white hover:text-gray-800 transition-all"
               >
                 <Globe size={18} className="sm:w-6 sm:h-6" />
               </a>
@@ -181,21 +190,21 @@ export default function Footer() {
                 </div>
               </div>
 
-              <div className="flex flex-row sm:flex-col lg:flex-col gap-3 sm:gap-4 justify-center sm:justify-center lg:justify-start">
+              <div className="flex flex-row  gap-3 sm:gap-4 justify-center sm:justify-center lg:justify-start">
                 <a
-                  href="#"
+                  href="mailto:info@shootingzonehyderabad.com"
                   className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 border-2 border-white rounded-full hover:bg-white hover:text-gray-800 transition-all"
                 >
                   <Mail size={18} className="sm:w-6 sm:h-6" />
                 </a>
                 <a
-                  href="#"
+                  href="tel:+919000375893"
                   className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 border-2 border-white rounded-full hover:bg-white hover:text-gray-800 transition-all"
                 >
                   <Phone size={18} className="sm:w-6 sm:h-6" />
                 </a>
                 <a
-                  href="#"
+                  href="https://wa.me/919000375863"
                   className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-green-500 rounded-full hover:bg-green-600 transition-all"
                 >
                   <svg

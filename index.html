@@ -2,19 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>PhotoGraphy project</title>
+    <title>Photography Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <!-- Import Fonts -->
     <style>
+      /* Other existing font imports */
       @import url("https://fonts.cdnfonts.com/css/porter-sans-block");
       @import url("https://fonts.googleapis.com/css2?family=Mirza&family=Irish+Grover&family=Playfair+Display:wght@300&family=Poppins:wght@300;400;500;600&family=Montserrat:wght@200;500&family=Nova+Round&family=Miltonian&display=swap");
-    </style>          
+
+      /* ✅ Correct Komorebi font import */
+      @import url("https://fonts.cdnfonts.com/css/komorebi");
+
+      @import url("https://fonts.googleapis.com/css2?family=Megrim&display=swap");
+
+      @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+      /* 🏁 Cheque Font from CDNFonts */
+      @import url("https://fonts.cdnfonts.com/css/garet?styles=300,400,500,600,700,800,900");
+      @import url('https://fonts.cdnfonts.com/css/code');
+      @import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+      @import url('https://fonts.cdnfonts.com/css/impact');
+      @import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap');
+
+
+    </style>
+
+    <!-- Tailwind CSS -->
     <link href="tailwind.css" rel="stylesheet" />
-    <link href="tailwind.css" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/itc-bauhaus" rel="stylesheet" />
   </head>
-  <body>
+
+  <body class="bg-white text-black">
     <div id="app"></div>
+
+    <!-- React entry point -->
     <script type="module" src="./src/index.tsx"></script>
   </body>
 </html>

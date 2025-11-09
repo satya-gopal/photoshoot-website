@@ -1,143 +1,193 @@
-// import { ArrowUpRightIcon, MenuIcon } from "lucide-react";
-// import React, { useState } from "react";
-// import { Button } from "../../components/ui/button";
+// import { ArrowUpRight } from "lucide-react";
+// import { useState } from "react";
+// import { PreRegisterModal } from "../../components/preregistationmodal";
 
-// const navigationItems = [
-//   { label: "HOME", href: "#" },
-//   { label: "PACKAGES", href: "#" },
-//   { label: "GALLERY", href: "#" },
-//   { label: "BLOG", href: "#" },
-//   { label: "CONTACT US", href: "#" },
-// ];
-
-// export const Desktop = (): JSX.Element => {
-//   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+// export const Hero = (): JSX.Element => {
+//   const [isModalOpen, setIsModalOpen] = useState(false);
 
 //   return (
-//     <div className="relative w-full min-h-screen bg-[#0d1c28]">
-//       <header className="w-full h-[55px] bg-white relative z-10">
-//         <nav className="flex items-center justify-between md:justify-end h-full px-4 md:px-8">
-//           <button
-//             className="md:hidden text-black"
-//             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-//             aria-label="Toggle menu"
-//           >
-//             <MenuIcon className="w-6 h-6" />
-//           </button>
-
-//           <div className="hidden md:flex items-center gap-8 lg:gap-16">
-//             {navigationItems.map((item, index) => (
-//               <a
-//                 key={index}
-//                 href={item.href}
-//                 className="[font-family:'Poppins',Helvetica] font-medium text-black text-base lg:text-xl tracking-[0] leading-[normal] hover:opacity-70 transition-opacity"
-//               >
-//                 {item.label}
-//               </a>
-//             ))}
+//     <section id="home" className="relative w-full bg-[#0d1c28] h-[813px]">
+//       {/* Header */}
+//       <header className="relative z-10 w-full bg-[#0d1c28]/70 backdrop-blur-sm shadow-md">
+//         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+//           {/* Logo */}
+//           <div className="flex-shrink-0">
+//             <img
+//               src="/image.png"
+//               alt="Logo"
+//               className="h-[30px] sm:h-[38px] object-contain"
+//             />
 //           </div>
-//         </nav>
 
-//         {mobileMenuOpen && (
-//           <div className="md:hidden absolute top-[55px] left-0 w-full bg-white shadow-lg z-20">
-//             <div className="flex flex-col py-4">
-//               {navigationItems.map((item, index) => (
-//                 <a
-//                   key={index}
-//                   href={item.href}
-//                   className="[font-family:'Poppins',Helvetica] font-medium text-black text-lg tracking-[0] leading-[normal] px-6 py-3 hover:bg-gray-100 transition-colors"
-//                   onClick={() => setMobileMenuOpen(false)}
-//                 >
-//                   {item.label}
-//                 </a>
-//               ))}
-//             </div>
+//           {/* Buttons */}
+//           <div className="flex gap-2 sm:gap-4 items-center">
+//             <button
+//               type="button"
+//               className="px-3 sm:px-[31px] py-[6px] sm:py-[8px] rounded-lg bg-white border-0 hover:bg-gray-100 transition-colors"
+//             >
+//               <span className="font-['Poppins',Helvetica] font-semibold text-black text-sm sm:text-lg select-none">
+//                 MENU
+//               </span>
+//             </button>
+
+//             <button
+//               type="button"
+//               onClick={() => setIsModalOpen(true)}
+//               className="px-2 sm:px-[19px] py-[6px] sm:py-[8px] rounded-lg bg-white border-0 hover:bg-gray-100 transition-colors flex items-center gap-1 sm:gap-2 select-none"
+//             >
+//               <span className="font-['Poppins',Helvetica] font-semibold text-black text-xs sm:text-[17px] whitespace-nowrap">
+//                 PRE - REGISTER
+//               </span>
+//               <ArrowUpRight className="w-4 h-4 sm:w-[23px] sm:h-[23px]" />
+//             </button>
 //           </div>
-//         )}
+//         </div>
 //       </header>
 
-//       <img
-//         src="/image.png"
-//         alt="Logo"
-//         className="h-[30px] md:h-[40px] object-contain absolute top-[70px] md:top-[75px] left-4 md:left-[40px] z-10"
+//       {/* Pre-Register Modal */}
+//       <PreRegisterModal
+//         isOpen={isModalOpen}
+//         onClose={() => setIsModalOpen(false)}
 //       />
 
-//       <div className="flex gap-2 md:gap-4 absolute top-[70px] md:top-[91px] right-4 md:right-[40px] z-10">
-//         <Button
-//           variant="outline"
-//           className="h-[32px] md:h-[38px] px-3 md:px-[31px] rounded-lg bg-white border-0 hover:bg-gray-100"
+//       {/* Hero Content (Responsive Like Footer) */}
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 text-center mt-44">
+//         <h1
+//           className="font-light text-white text-3xl sm:text-5xl lg:text-[80px] leading-tight text-center select-none"
+//           style={{ fontFamily: "'TAN-PEARL', Helvetica" }}
 //         >
-//           <span className="[font-family:'Poppins',Helvetica] font-semibold text-black text-sm md:text-lg tracking-[0] leading-[normal]">
-//             MENU
-//           </span>
-//         </Button>
-
-//         <Button
-//           variant="outline"
-//           className="h-[32px] md:h-[39px] px-2 md:px-[19px] rounded-lg bg-white border-0 hover:bg-gray-100 flex items-center gap-1 md:gap-2"
-//         >
-//           <span className="[font-family:'Poppins',Helvetica] font-semibold text-black text-xs md:text-[17px] tracking-[0] leading-[normal] whitespace-nowrap">
-//             PRE - REGISTER
-//           </span>
-//           <ArrowUpRightIcon className="w-4 h-4 md:w-[23px] md:h-[23px]" />
-//         </Button>
-//       </div>
-
-//       <main className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-//       <h1 className="[font-family:'Playfair',Helvetica] font-light text-white text-5xl md:text-7xl lg:text-[110px] tracking-[0] leading-tight md:leading-[normal] text-center md:whitespace-nowrap">
 //           Baby Shooting Zone
 //         </h1>
 
-//         <p className="mt-6 md:mt-[48px] [font-family:'Montserrat',Helvetica] font-medium text-white text-md md:text-lg tracking-[0] leading-[normal] text-center px-4">
+//         <p
+//           className="mt-4 sm:mt-6 font-medium text-white text-base sm:text-xl tracking-[0.1em] leading-normal text-center select-none"
+//           style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+//         >
 //           Where Little Moments become Lifelong Memories
 //         </p>
-//       </main>
-//     </div>
+//       </div>
+//     </section>
 //   );
 // };
 
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { PreRegisterModal } from "../../components/preregistationmodal";
+import { useNavigate } from "react-router-dom";
 
 export const Hero = (): JSX.Element => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  console.log("modelopen", isModalOpen);
+
+  const navigate = useNavigate();
+
+  const menuItems = [
+    { label: "Birthday Shoot", path: "/birthdayshootmenu" },
+    { label: "New Born Shoot", path: "/newbornmenu" },
+    { label: "Model Shoot", path: "/modelshootmenu" },
+    { label: "Baby Shoot", path: "/babyshootmenu" },
+    { label: "Maternity Shoot", path: "/maternityshootmenu" },
+  ];
+
   return (
-    <div id="home" className="relative w-full min-h-screen bg-[#0d1c28]">
-      <div className="w-full flex items-center justify-between px-4 md:px-8 h-[70px] shadow-md">
-  {/* Left: Logo */}
-  <div className="flex-shrink-0">
-    <img
-      src="/image.png"
-      alt="Logo"
-      className="h-[30px] md:h-[40px] object-contain"
-    />
-  </div>
+    <div
+      id="home"
+      className="relative w-full flex justify-center h-[813px] bg-[#0d1c28]"
+    >
+      {/* Header */}
+      <div className=" w-full flex justify-center ">
+        <div className="relative z-10 flex items-center justify-end md:justify-between  px-4 md:px-8 h-[70px] w-full max-w-[1440px] shadow-md">
+          {/* Left: Logo */}
+          <div className="flex-shrink-0 hidden md:block">
+            <img
+              src="/image.png"
+              alt="Logo"
+              className="h-[30px] md:h-[52px] object-contain"
+            />
+          </div>
 
-  {/* Right: Buttons */}
-  <div className="flex gap-2 md:gap-4 items-center">
-    <button className="h-[32px] md:h-[38px] px-3 md:px-[31px] rounded-lg bg-white border-0 hover:bg-gray-100 transition-colors">
-      <span className="font-['Poppins',Helvetica] font-semibold text-black text-sm md:text-lg tracking-[0] leading-[normal]">
-        MENU
-      </span>
-    </button>
+          {/* Right: Buttons */}
+          <div className="relative flex gap-2 md:gap-4 items-center">
+            {/* MENU WRAPPER */}
+            <div
+              className="relative"
+              onMouseEnter={() => setMenuOpen(true)}
+              onMouseLeave={() => setMenuOpen(false)}
+            >
+              {/* MENU BUTTON */}
+              <button
+                type="button"
+                onClick={() => setMenuOpen((prev) => !prev)} // mobile toggle
+                className="h-[32px] md:h-[38px] px-3 md:px-[31px] rounded-lg bg-white border-0 hover:bg-gray-100 transition-colors"
+              >
+                <span className="font-['Poppins',Helvetica] font-semibold text-black text-sm md:text-lg">
+                  MENU
+                </span>
+              </button>
 
-    <button className="h-[32px] md:h-[39px] px-2 md:px-[19px] rounded-lg bg-white border-0 hover:bg-gray-100 transition-colors flex items-center gap-1 md:gap-2">
-      <span className="font-['Poppins',Helvetica] font-semibold text-black text-xs md:text-[17px] tracking-[0] leading-[normal] whitespace-nowrap">
-        PRE - REGISTER
-      </span>
-      <ArrowUpRight className="w-4 h-4 md:w-[23px] md:h-[23px]" />
-    </button>
-  </div>
-</div>
+              {/* DROPDOWN */}
+              {menuOpen && (
+                <div
+                  className="absolute left-0 pt-[1px] w-52 bg-white shadow-lg rounded-lg z-50"
+                  onMouseEnter={() => setMenuOpen(true)} // keep open when hovering dropdown
+                  onMouseLeave={() => setMenuOpen(false)}
+                >
+                  <ul className="py-2 text-sm font-medium text-gray-700">
+                    {menuItems.map((item) => (
+                      <li key={item.label}>
+                        <button
+                          className="w-full text-left px-4 py-2 hover:bg-gray-100 block"
+                          onClick={() => {
+                            setMenuOpen(false);
+                            navigate(item.path);
+                          }}
+                        >
+                          {item.label}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
 
+            {/* PRE-REGISTER BUTTON */}
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(true)}
+              className="select-none h-[32px] md:h-[39px] px-2 md:px-[19px] rounded-lg bg-white border-0 hover:bg-gray-100 transition-colors flex items-center gap-1 md:gap-2"
+            >
+              <span className="font-['Poppins',Helvetica] font-semibold text-black text-xs md:text-[17px] whitespace-nowrap select-none">
+                PRE - REGISTER
+              </span>
+              <ArrowUpRight className="w-4 h-4 md:w-[23px] md:h-[23px]" />
+            </button>
+          </div>
+        </div>
+      </div>
 
-      <main className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-        <h1 className="font-['Playfair',Helvetica] font-light text-white text-4xl md:text-7xl lg:text-[110px] tracking-[0] leading-tight md:leading-[normal] text-center md:whitespace-nowrap">
+      {/* Pre-Register Modal */}
+      <PreRegisterModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
+
+      {/* Hero Content */}
+      <section className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
+        <h1
+          className="font-light text-white text-2xl md:text-4xl lg:text-[80px] tracking-[0] leading-tight md:leading-[normal] text-center md:whitespace-nowrap select-none"
+          style={{ fontFamily: "'TAN-PEARL', Helvetica" }}
+        >
           Baby Shooting Zone
         </h1>
-
-        <p className="mt-6 md:mt-[48px] font-['Montserrat',Helvetica] font-medium text-white text-sm md:text-lg tracking-[0] leading-[normal] text-center px-4">
+        <p
+          className="mt-6 md:mt-[34px] font-normal text-white text-sm md:text-2xl  tracking-wide leading-normal  text-center px-4 select-none"
+          style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+        >
           Where Little Moments become Lifelong Memories
         </p>
-      </main>
+      </section>
     </div>
   );
 };

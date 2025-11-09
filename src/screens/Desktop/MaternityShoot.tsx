@@ -11,22 +11,19 @@ export const MaternityShoot = (): JSX.Element => {
   ];
 
   return (
-    <div id="maternityshoot" className="bg-white w-full min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="hidden lg:block w-full" style={{
-        aspectRatio: '1440 / 813.69',
-        maxWidth: '100vw',
-        maxHeight: '100vh',
-      }}>
-        <main className="relative w-[1440px] h-[813.69px] origin-top-left" style={{
-          transform: 'scale(var(--scale))',
-          ['--scale' as any]: 'min(100vw / 1440, 100vh / 813.69)'
-        }}>
+    <div
+      id="maternityshoot"
+      className="pt-10 pb-20 bg-white w-full h-[813.69px] flex items-center justify-center overflow-hidden"
+    >
+      {/* ======= Desktop Version ======= */}
+      <div className="hidden lg:flex lg:items-center lg:justify-center w-full h-screen">
+        <main className="relative w-[1440px] h-[813.69px] mx-auto">
           <img
             className="absolute top-8 left-0 w-[1056px] h-[438px]"
             alt="Frame"
-            src="/frame-21.svg"
+            src="/frame21.jpg"
           />
-
+          {/* 
           {floralElements.map((element, index) => (
             <div
               key={`floral-${index}`}
@@ -47,12 +44,12 @@ export const MaternityShoot = (): JSX.Element => {
                 <circle cx="20" cy="12" r="2" fill="black" />
               </svg>
             </div>
-          ))}
+          ))} */}
 
           <section className="absolute top-[298px] left-[1295px] w-[145px] h-[250px] flex gap-4">
             <div className="w-9 h-[250px] flex flex-col items-center justify-start bg-[#d9d9d9] pt-1.5">
-              <div className="[font-family:'Poppins',Helvetica] font-light text-black text-[28px] text-center tracking-[0] leading-[36px]">
-                M<br/>O<br/>N<br/>T<br/>H
+              <div className="[font-family:'Megrim',Helvetica] font-light text-black text-[28px] text-center tracking-[0] leading-[40px]">
+                M<br />O<br />N<br />T<br />H
               </div>
             </div>
 
@@ -65,90 +62,127 @@ export const MaternityShoot = (): JSX.Element => {
 
           <div className="absolute top-8 left-[1069px] w-[214px] h-[249px] rounded-[0px_600px_0px_0px] [background:url(/frame-25.png)_50%_50%_/_cover]" />
 
-          <h2 className="absolute top-[628px] left-[349px] [font-family:'Montserrat',Helvetica] font-extralight text-black text-[65px] text-center tracking-[16.25px] leading-[normal]">
+          {/* SHOOTS - Megrim Font */}
+          <h2
+            className="absolute top-[648px] left-[349px] font-extralight text-black text-[65px] text-center tracking-[16.25px] leading-[normal]"
+            style={{ fontFamily: "'Megrim', cursive" }}
+          >
             SHOOTS
           </h2>
 
           <img
-            className="absolute top-[619px] left-[81px] w-[893px] h-px object-cover"
+            className="absolute top-[649px] left-[81px] w-[893px] h-px object-cover"
             alt="Line"
             src="/line-1.svg"
           />
 
-          <div className="absolute top-[506px] left-[1301px] [font-family:'Poppins',Helvetica] font-light text-black text-[28px] text-center tracking-[3.00px] leading-[normal]">
+          <div className="pt-1 absolute top-[506px] left-[1301px] [font-family:'Megrim',Helvetica] font-light text-black text-[28px] text-center tracking-[6.00px] leading-[normal]">
             SPECIAL
           </div>
 
-          <h1 className="absolute top-[506px] left-[185px] [font-family:'Miltonian',Helvetica] font-normal text-black text-8xl text-center tracking-[0] leading-[normal] whitespace-nowrap">
+          {/* MATERNITY - Komorebi Font */}
+          <h1
+            className=" pl-20 absolute top-[506px] flex justify-start  font-normal text-black text-[140px] text-center tracking-[30px] leading-[normal] whitespace-nowrap"
+            style={{ fontFamily: "'Komorebi', sans-serif" }}
+          >
             MATERNITY
           </h1>
         </main>
       </div>
 
-      <div className="lg:hidden w-full min-h-screen flex flex-col">
-        <div className="relative w-full px-4 py-8 md:px-8 md:py-12">
-          <div className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
-            {floralElements.slice(0, 4).map((_, index) => (
-              <div key={`floral-mobile-${index}`} className="w-4 h-4 md:w-6 md:h-6">
-                <svg
-                  width="100%"
-                  height="100%"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="12" cy="12" r="3" fill="black" />
-                  <circle cx="12" cy="4" r="2" fill="black" />
-                  <circle cx="12" cy="20" r="2" fill="black" />
-                  <circle cx="4" cy="12" r="2" fill="black" />
-                  <circle cx="20" cy="12" r="2" fill="black" />
-                </svg>
-              </div>
-            ))}
-          </div>
-
-          <div className="relative mb-8 md:mb-12">
-            <img
-              className="w-full h-auto max-w-full"
-              alt="Frame"
-              src="/frame-21.svg"
-            />
-          </div>
-
-          <div className="text-center mb-8 md:mb-12">
-            <h1 className="[font-family:'Miltonian',Helvetica] font-normal text-black text-4xl md:text-6xl mb-4 md:mb-6 tracking-tight">
+      {/* ======= Mobile Version ======= */}
+      <div className="lg:hidden w-full bg-[#d9d9d9] py-8">
+        <div className="relative w-full max-w-[420px] mx-auto">
+          {/* MATERNITY */}
+          <div className="text-center bg-white mt-32">
+            <span
+              className="font-normal text-black text-[56px] tracking-[12px] "
+              style={{ fontFamily: "'Komorebi', sans-serif" }}
+            >
               MATERNITY
-            </h1>
+            </span>
+          </div>
 
-            <div className="w-full h-px bg-black mb-4 md:mb-6" />
-
-            <h2 className="[font-family:'Montserrat',Helvetica] font-extralight text-black text-3xl md:text-5xl tracking-[8px] md:tracking-[12px]">
+          {/* SHOOTS */}
+          <div className="text-center">
+            <h2
+              className="font-extralight text-black text-[24px] tracking-[12px]"
+              style={{ fontFamily: "'Megrim', cursive" }}
+            >
               SHOOTS
             </h2>
           </div>
 
-          <div className="grid grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8">
-            <div className="rounded-tl-[100px] md:rounded-tl-[150px] overflow-hidden aspect-[4/5] [background:url(/frame-25.png)_50%_50%_/_cover]" />
-            <div className="aspect-[4/5] [background:url(/frame-24.png)_50%_50%_/_cover]" />
-            <div className="rounded-br-[100px] md:rounded-br-[150px] overflow-hidden aspect-[4/5] [background:url(/frame-26.png)_50%_50%_/_cover]" />
+          {/* Images section (number 9) */}
+          <div className="relative w-full h-[480px] mt-6">
+            {/* Circle of 9 */}
+            <div
+              className="absolute top-[14px] left-[69px] w-[180px] h-[220px]"
+              style={{
+                backgroundImage: "url(/ed_1.png)",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+            />
+
+            {/* Tail of 9 - top */}
+            <div
+              className="absolute top-[20px] left-[200px] w-[106px] h-[125px] rounded-tr-[600px] overflow-hidden"
+              style={{
+                backgroundImage: "url(/frame-25.png)",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+            />
+
+            {/* Tail of 9 - middle */}
+            <div
+              className="absolute top-[150px] left-[200px] w-[106px] h-[125px]"
+              style={{
+                backgroundImage: "url(/frame-24.png)",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+            />
+
+            {/* Tail of 9 - bottom */}
+            <div
+              className="absolute top-[270px] left-[200px] w-[106px] h-[125px] rounded-br-[600px] overflow-hidden"
+              style={{
+                backgroundImage: "url(/frame-26.png)",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+            />
+
+            {/* Footprints */}
+            {["230", "265", "300", "335", "370"].map((top, i) => (
+              <div
+                key={i}
+                className="absolute left-[170px] text-black text-lg"
+                style={{ top: `${top}px` }}
+              >
+                👣
+              </div>
+            ))}
           </div>
 
-          <div className="flex items-center justify-center gap-3 md:gap-4">
-            <div className="relative flex items-center justify-center w-24 h-32 md:w-32 md:h-40">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="[font-family:'Poppins',Helvetica] font-bold text-[#d9d9d9] text-[120px] md:text-[160px] leading-none">
-                  9
-                </span>
-              </div>
-              <div className="relative z-10 [font-family:'Poppins',Helvetica] font-light text-black text-sm md:text-lg text-center tracking-[0] leading-tight">
-                M<br/>O<br/>N<br/>T<br/>H
-              </div>
-            </div>
-
-            <div className="[font-family:'Poppins',Helvetica] font-light text-black text-base md:text-xl tracking-[3px] md:tracking-[5px]">
-              SPECIAL
-            </div>
+          {/* Bottom text */}
+          <div className="text-center py-2 bg-white">
+            <h3
+              className="font-light text-black text-[20px] tracking-[14px]"
+              style={{ fontFamily: "'Megrim', cursive" }}
+            >
+             MONTH SPECIAL
+            </h3>
           </div>
+
+          {/* Gray bottom strip */}
+          <div className="w-full h-16 bg-[#d9d9d9]" />
         </div>
       </div>
     </div>

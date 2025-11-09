@@ -5,37 +5,40 @@ const photographyServices = [
     id: 1,
     title: "Couple\nPhotoshoots",
     image: "../frame-65.png",
-    position: "top-[201px] left-[100px]",
-    textPosition: "top-[621px] left-[131px]",
+    position: "top-[201px] left-[100px]  w-[280px] h-[372px]",
+    textPosition: "top-[581px] left-[171px]",
   },
   {
     id: 2,
     title: "Cake Smash",
     image: "../frame-67.png",
-    position: "top-[67px] left-[537px]",
-    textPosition: "top-[314px] left-[585px]",
+    position: "top-[67px] left-[537px] w-[350px] h-[214px]",
+    textPosition: "top-[264px] left-[635px]",
   },
   {
     id: 3,
     title: "Pre & Post-Weddings",
     image: "../frame-66.png",
-    position: "top-[407px] left-[537px]",
-    textPosition: "top-[665px] left-[510px]",
+    position: "top-[407px] left-[537px] w-[365px] h-[214px]",
+    textPosition: "top-[645px] left-[580px]",
   },
   {
     id: 4,
     title: "Model\nPhotoshoot",
     image: "../frame-68.png",
-    position: "top-[201px] left-[1098px]",
-    textPosition: "top-[621px] left-[1151px]",
+    position: "top-[201px] left-[1098px] w-[280px] h-[372px]",
+    textPosition: "top-[581px] right-[121px]",
   },
 ];
 
 export const PhotoGraphyServices = (): JSX.Element => {
   return (
-    <main id="services" className="bg-black w-full lg:min-w-[1440px] min-h-screen lg:min-h-[813.69px] relative">
+    <div
+      id="services"
+      className="bg-black w-full relative flex justify-center lg:h-[813px]  py-12"
+    >
       {/* Desktop Layout */}
-      <div className="hidden lg:block relative">
+      <div className="hidden lg:block relative w-[1440px]">
         {photographyServices.map((service) => (
           <React.Fragment key={service.id}>
             {/* Image */}
@@ -49,7 +52,7 @@ export const PhotoGraphyServices = (): JSX.Element => {
 
             {/* Title */}
             <div
-              className={`absolute ${service.textPosition} [font-family:'Poppins',Helvetica] font-normal text-[#fbaf58] text-[40px] text-center tracking-[0] leading-[normal] whitespace-pre-line`}
+              className={`absolute ${service.textPosition} [font-family:'Barlow_Condensed',Helvetica] font-normal text-[#fbaf58] text-[40px] text-center tracking-[0] leading-[normal] whitespace-pre-line`}
             >
               {service.title}
             </div>
@@ -58,20 +61,20 @@ export const PhotoGraphyServices = (): JSX.Element => {
       </div>
 
       {/* Mobile Layout */}
-      <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-12 max-w-7xl mx-auto">
+      <div className="lg:hidden grid grid-cols-1 gap-8 p-6 max-w-md mx-auto">
         {photographyServices.map((service) => (
           <div key={service.id} className="flex flex-col items-center">
             <img
               src={service.image}
               alt={service.title}
-              className="w-full max-w-[280px] aspect-[3/4] rounded-lg object-cover"
+              className="w-full rounded-lg object-cover"
             />
-            <h2 className="[font-family:'Poppins',Helvetica] font-normal text-[#fbaf58] text-3xl md:text-4xl text-center tracking-[0] leading-normal mt-6 whitespace-pre-line">
+            <h2 className="[font-family:'Barlow_Condensed',Helvetica] font-normal text-[#fbaf58] text-3xl text-center mt-4 whitespace-pre-line">
               {service.title}
             </h2>
           </div>
         ))}
       </div>
-    </main>
+    </div>
   );
 };
