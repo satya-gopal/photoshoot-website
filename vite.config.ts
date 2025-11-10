@@ -11,4 +11,12 @@ export default defineConfig({
       plugins: [tailwind()],
     },
   },
+  server: {
+    host: "0.0.0.0",
+    port: 5000,
+    hmr: {
+      clientPort: 443,
+      protocol: "wss",
+    },
+  },
 });
