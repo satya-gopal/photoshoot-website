@@ -13,6 +13,10 @@ import fs from 'fs';
 const app = express();
 const PORT = 3001;
 
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+}
+
 const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
@@ -30,11 +34,25 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+const allowedOrigins = [
+  'http://localhost:5000',
+  'http://127.0.0.1:5000',
+  'https://5331a89b-2c98-4155-a4a8-1440e1123b0a-00-18h3kkx7t2kx3.pike.replit.dev',
+  process.env.REPLIT_DEV_DOMAIN ? `https://${process.env.REPLIT_DEV_DOMAIN}` : null,
+].filter(Boolean);
+
 app.use(cors({
-  origin: 'http://localhost:5000',
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
 app.use(express.json());
+app.use('/uploads', express.static(uploadsDir));
 app.use(
   session({
     secret: process.env.SESSION_SECRET || 'photography-secret-key-change-in-production',
@@ -43,7 +61,8 @@ app.use(
     cookie: {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
-      secure: false,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
     },
   })
 );

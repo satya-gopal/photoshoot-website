@@ -74,13 +74,19 @@ import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { PreRegisterModal } from "../../components/preregistationmodal";
 import { useNavigate } from "react-router-dom";
+import { useContent } from "../../hooks/useContent";
 
 export const Hero = (): JSX.Element => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { getSection, loading } = useContent();
   console.log("modelopen", isModalOpen);
 
   const navigate = useNavigate();
+  
+  const heroSection = getSection('hero');
+  const title = heroSection?.title || 'Baby Shooting Zone';
+  const description = heroSection?.description || 'Where Little Moments become Lifelong Memories';
 
   const menuItems = [
     { label: "Birthday Shoot", path: "/birthdayshootmenu" },
@@ -175,18 +181,24 @@ export const Hero = (): JSX.Element => {
 
       {/* Hero Content */}
       <section className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
-        <h1
-          className="font-light text-white text-2xl md:text-4xl lg:text-[80px] tracking-[0] leading-tight md:leading-[normal] text-center md:whitespace-nowrap select-none"
-          style={{ fontFamily: "'TAN-PEARL', Helvetica" }}
-        >
-          Baby Shooting Zone
-        </h1>
-        <p
-          className="mt-6 md:mt-[34px] font-normal text-white text-sm md:text-2xl  tracking-wide leading-normal  text-center px-4 select-none"
-          style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-        >
-          Where Little Moments become Lifelong Memories
-        </p>
+        {loading ? (
+          <p className="text-white">Loading...</p>
+        ) : (
+          <>
+            <h1
+              className="font-light text-white text-2xl md:text-4xl lg:text-[80px] tracking-[0] leading-tight md:leading-[normal] text-center md:whitespace-nowrap select-none"
+              style={{ fontFamily: "'TAN-PEARL', Helvetica" }}
+            >
+              {title}
+            </h1>
+            <p
+              className="mt-6 md:mt-[34px] font-normal text-white text-sm md:text-2xl  tracking-wide leading-normal  text-center px-4 select-none"
+              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            >
+              {description}
+            </p>
+          </>
+        )}
       </section>
     </div>
   );

@@ -43,7 +43,8 @@ export default function AdminDashboard() {
 
   const checkAuth = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/auth/check', {
+      const API_URL = 'http://localhost:3001';
+      const response = await fetch(`${API_URL}/api/auth/check`, {
         credentials: 'include',
       });
       const data = await response.json();
@@ -58,7 +59,8 @@ export default function AdminDashboard() {
 
   const fetchSections = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/sections');
+      const API_URL = 'http://localhost:3001';
+      const response = await fetch(`${API_URL}/api/sections`);
       const data = await response.json();
       setSections(data);
     } catch (err) {
@@ -68,7 +70,8 @@ export default function AdminDashboard() {
 
   const fetchImages = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/images');
+      const API_URL = 'http://localhost:3001';
+      const response = await fetch(`${API_URL}/api/images`);
       const data = await response.json();
       setImages(data);
     } catch (err) {
@@ -78,7 +81,8 @@ export default function AdminDashboard() {
 
   const handleLogout = async () => {
     try {
-      await fetch('http://localhost:3001/api/auth/logout', {
+      const API_URL = 'http://localhost:3001';
+      await fetch(`${API_URL}/api/auth/logout`, {
         method: 'POST',
         credentials: 'include',
       });
@@ -90,7 +94,8 @@ export default function AdminDashboard() {
 
   const handleUpdateSection = async (section: Section) => {
     try {
-      const response = await fetch(`http://localhost:3001/api/sections/${section.id}`, {
+      const API_URL = 'http://localhost:3001';
+      const response = await fetch(`${API_URL}/api/sections/${section.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -122,7 +127,8 @@ export default function AdminDashboard() {
     setUploadingImage(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/images/upload', {
+      const API_URL = 'http://localhost:3001';
+      const response = await fetch(`${API_URL}/api/images/upload`, {
         method: 'POST',
         credentials: 'include',
         body: formData,
@@ -142,7 +148,8 @@ export default function AdminDashboard() {
 
   const handlePublishImage = async (image: Image) => {
     try {
-      const response = await fetch(`http://localhost:3001/api/images/${image.id}`, {
+      const API_URL = 'http://localhost:3001';
+      const response = await fetch(`${API_URL}/api/images/${image.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -166,7 +173,8 @@ export default function AdminDashboard() {
     if (!confirm('Are you sure you want to delete this image?')) return;
 
     try {
-      const response = await fetch(`http://localhost:3001/api/images/${imageId}`, {
+      const API_URL = 'http://localhost:3001';
+      const response = await fetch(`${API_URL}/api/images/${imageId}`, {
         method: 'DELETE',
         credentials: 'include',
       });
@@ -327,6 +335,9 @@ export default function AdminDashboard() {
                   <div key={image.id} className="border rounded p-2">
                     <img
                       src={`http://localhost:3001${image.imagePath}`}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = '/placeholder.png';
+                      }}
                       alt={image.altText || ''}
                       className="w-full h-32 object-cover rounded mb-2"
                     />
