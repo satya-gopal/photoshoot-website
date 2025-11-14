@@ -3,17 +3,17 @@ import React from "react";
 const photographyCategories = [
   {
     id: 1,
-    image: "/frame-622.png",
+    image: `${import.meta.env.VITE_IMAGE_BASE_URL}/frame-622.png`,
     title: "Baby Shoot",
   },
   {
     id: 2,
-    image: "/frame-632.png",
+    image: `${import.meta.env.VITE_IMAGE_BASE_URL}/frame-632.png`,
     title: "Maternity Shoot",
   },
   {
     id: 3,
-    image: "/frame-642.png",
+    image: `${import.meta.env.VITE_IMAGE_BASE_URL}/frame-642.png`,
     title: "New Born",
   },
 ];
@@ -39,7 +39,7 @@ export const OneTinyMoment = (): JSX.Element => {
               key={category.id}
               className="flex flex-col items-center text-center"
             >
-              <div className="max-w-[300px] sm:max-w-[350px] md:max-w-[380px] rounded-xl overflow-hidden border border-solid border-black shadow-[0px_4px_100px_#00000040,0px_4px_100px_100px_#00000040] bg-transparent">
+              <div className="max-w-[300px] sm:max-w-[350px] md:max-w-[380px] rounded-xl overflow-hidden border border-solid border-black md:shadow-[0px_4px_100px_#00000040,0px_4px_100px_100px_#00000040] bg-transparent">
                 <img
                   src={category.image}
                   alt={category.title}

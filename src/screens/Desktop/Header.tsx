@@ -70,7 +70,7 @@
 //       {/* Left: Logo */}
 //       <div className="hidden flex-shrink-0">
 //         <img
-//           src="/image.png"
+//           src={`${import.meta.env.VITE_IMAGE_BASE_URL}/image.png`}
 //           alt="Logo"
 //           className="h-[30px] md:h-[40px] object-contain"
 //         />
@@ -181,7 +181,7 @@ export const Header = () => {
       {/* Left: Logo */}
       <div className="md:hidden flex-shrink-0">
         <img
-          src="/image.png"
+          src={`${import.meta.env.VITE_IMAGE_BASE_URL}/image.png`}
           alt="Logo"
           className="h-[30px] md:h-[40px] object-contain cursor-pointer"
           onClick={() => handleNavigation('/')}
@@ -234,7 +234,7 @@ export const Header = () => {
       }`}
     >
       <div className="flex items-center justify-between p-6 border-b border-gray-200/50">
-        <img src="/image.png" alt="Logo" className="h-8 w-auto" />
+        <img src={`${import.meta.env.VITE_IMAGE_BASE_URL}/image.png`} alt="Logo" className="h-8 w-auto" />
         <button
           onClick={() => setMobileMenuOpen(false)}
           className="p-2 rounded-xl hover:bg-gray-100 transition-colors"

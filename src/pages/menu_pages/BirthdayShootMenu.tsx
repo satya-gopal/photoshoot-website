@@ -160,7 +160,7 @@ function BirthdayShootMenu() {
         {/* Rotated image - birthday collage */}
         <div className="absolute top-[88px] right-[3%] w-72 h-36 rounded-xl shadow-2xl transform overflow-hidden bg-white p-2">
           <img
-            src="/WEB_MEDIA/birthdaygroup.png"
+            src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/birthdaygroup.png`}
             alt="Birthday photoshoot"
             className="w-full h-full object-cover rounded-lg"
           />
@@ -228,7 +228,7 @@ function BirthdayShootMenu() {
                         </div>
                         <div className="w-[140px] h-[80px]">
                           <img
-                            src="/WEB_MEDIA/DSC02975.JPG"
+                            src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/DSC02975.JPG`}
                             alt="BIRTHDAY shoot"
                             className="w-full h-full object-cover"
                           />

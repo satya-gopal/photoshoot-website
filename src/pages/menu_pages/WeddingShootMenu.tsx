@@ -135,7 +135,7 @@ function WeddingShootMenu() {
             {/* Right Section: Image */}
             <div className="w-[180px] h-auto">
               <img
-                src="/WEB_MEDIA/wedding-couple.jpg"
+                src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/wedding-couple.jpg`}
                 alt="Wedding shoot"
                 className="w-full h-full object-cover"
               />
@@ -167,7 +167,7 @@ function WeddingShootMenu() {
         {/* Rotated image - wedding photoshoot */}
         <div className="absolute top-[86px] right-[3%] w-48 h-64 rounded-xl shadow-2xl transform overflow-hidden">
           <img
-            src="/WEB_MEDIA/wedding-photo.jpg"
+            src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/wedding-photo.jpg`}
             alt="Wedding photoshoot"
             className="w-full h-full object-cover"
           />
@@ -225,7 +225,7 @@ function WeddingShootMenu() {
                   </div>
                   <div className="w-[150px] h-[120px]">
                     <img
-                      src="/WEB_MEDIA/wedding-couple.jpg"
+                      src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/wedding-couple.jpg`}
                       alt="Wedding shoot"
                       className="w-full h-full object-cover"
                     />

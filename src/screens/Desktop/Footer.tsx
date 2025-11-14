@@ -183,7 +183,7 @@ export default function Footer() {
               <div className="bg-white p-3 sm:p-4 rounded-lg">
                 <div className="w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 flex items-center justify-center">
                   <img
-                    src="/studioqr.png" // public folder path
+                    src={`${import.meta.env.VITE_IMAGE_BASE_URL}/studioqr.png`} // public folder path
                     alt="Studio QR"
                     className="w-full h-full object-contain"
                   />

@@ -31,9 +31,36 @@ export const images = pgTable('images', {
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
 
+export const packages = pgTable('packages', {
+  id: serial('id').primaryKey(),
+  discount: text('discount').notNull(),           // e.g. "40%"
+  title: text('title').notNull(),                // "1 DAY/nBaby Shoot"
+  badge: text('badge'),                          // "Best Package"
+  isPublished: boolean('is_published').default(true).notNull(),
+  order: integer('order').default(0),            // sorting
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+});
+
+export const reviews = pgTable('reviews', {
+  id: serial('id').primaryKey(),
+  name: text('name').notNull(),                  // "Christopher L."
+  text: text('text').notNull(),                  // review content
+  rating: integer('rating').default(5).notNull(),// 1–5 stars
+  platform: text('platform').default('google'),  // google / instagram / website
+  yearsAgo: text('years_ago').default('1 year ago'),
+  isPublished: boolean('is_published').default(true).notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+});
+
+
 export type Admin = typeof admins.$inferSelect;
 export type InsertAdmin = typeof admins.$inferInsert;
 export type Section = typeof sections.$inferSelect;
 export type InsertSection = typeof sections.$inferInsert;
 export type Image = typeof images.$inferSelect;
 export type InsertImage = typeof images.$inferInsert;
+export type Package = typeof packages.$inferSelect;
+export type InsertPackage = typeof packages.$inferInsert;
+export type Review = typeof reviews.$inferSelect;
+export type InsertReview = typeof reviews.$inferInsert;

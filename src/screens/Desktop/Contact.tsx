@@ -26,7 +26,6 @@ export const ContactUs = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
 
       <div className="relative w-full h-[300px] md:h-[400px] bg-[#0d1c28] flex items-center justify-center">
         <div className="text-center px-4">
@@ -272,7 +271,6 @@ export const ContactUs = () => {
         </a>
       </div>
 
-      <Footer />
     </div>
   );
 };

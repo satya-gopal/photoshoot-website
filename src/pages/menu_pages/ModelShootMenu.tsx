@@ -63,7 +63,7 @@ function ModelShootMenu() {
             {/* Right Section: Image */}
             <div className="w-[180px] h-24">
               <img
-                src="/WEB_MEDIA/modelshoot.png"
+                src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/modelshoot.png`}
                 alt="Model shoot"
                 className="w-full h-full object-cover"
               />
@@ -134,7 +134,7 @@ function ModelShootMenu() {
                   {/* Image Section */}
                   <div className="w-full h-32 ">
                     <img
-                      src="/WEB_MEDIA/modelshoot.png"
+                      src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/modelshoot.png`}
                       alt="modelshoot"
                       className="w-full h-full object-cover"
                     />

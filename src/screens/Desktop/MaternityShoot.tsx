@@ -1,4 +1,6 @@
 import React from "react";
+import { useContent } from "../../hooks/useContent";
+import { formatText } from "./BabyShoot";
 
 export const MaternityShoot = (): JSX.Element => {
   const floralElements = [
@@ -9,6 +11,14 @@ export const MaternityShoot = (): JSX.Element => {
     { top: "72px", left: "232px" },
     { top: "72px", left: "382px" },
   ];
+
+  const { getSection } = useContent();
+  const maternitySection = getSection("maternity");
+  const rawTitle = maternitySection?.title || `MATERNITY`;
+  const rawSubtitle = maternitySection?.description || `SHOOTS`;
+
+  const title = formatText(rawTitle);
+  const subtitle = formatText(rawSubtitle);
 
   return (
     <div
@@ -21,7 +31,7 @@ export const MaternityShoot = (): JSX.Element => {
           <img
             className="absolute top-8 left-0 w-[1056px] h-[438px]"
             alt="Frame"
-            src="/frame21.jpg"
+            src={`${import.meta.env.VITE_IMAGE_BASE_URL}/frame21.jpg`}
           />
           {/* 
           {floralElements.map((element, index) => (
@@ -56,24 +66,48 @@ export const MaternityShoot = (): JSX.Element => {
             <div className="mt-[157px] w-[41px] h-[145px] bg-[#d9d9d9] -rotate-90" />
           </section>
 
-          <div className="absolute top-[299px] left-[1069px] w-[214px] h-[249px] [background:url(/frame-24.png)_50%_50%_/_cover]" />
+          <div
+            className="absolute top-[299px] left-[1069px] w-[214px] h-[249px] bg-cover"
+            style={{
+              backgroundImage: `url(${
+                import.meta.env.VITE_IMAGE_BASE_URL
+              }/frame-24.png)`,
+              backgroundPosition: "50% 50%",
+            }}
+          />
 
-          <div className="absolute top-[566px] left-[1069px] w-[214px] h-[249px] rounded-[0px_0px_600px_0px] [background:url(/frame-26.png)_50%_50%_/_cover]" />
+          <div
+            className="absolute top-[566px] left-[1069px] w-[214px] h-[249px] rounded-[0px_0px_600px_0px] bg-cover"
+            style={{
+              backgroundImage: `url(${
+                import.meta.env.VITE_IMAGE_BASE_URL
+              }/frame-26.png)`,
+              backgroundPosition: "50% 50%",
+            }}
+          />
 
-          <div className="absolute top-8 left-[1069px] w-[214px] h-[249px] rounded-[0px_600px_0px_0px] [background:url(/frame-25.png)_50%_50%_/_cover]" />
+          <div
+            className="absolute top-8 left-[1069px] w-[214px] h-[249px] rounded-[0px_600px_0px_0px] bg-cover"
+            style={{
+              backgroundImage: `url(${
+                import.meta.env.VITE_IMAGE_BASE_URL
+              }/frame-25.png)`,
+              backgroundPosition: "50% 50%",
+            }}
+          />
 
           {/* SHOOTS - Megrim Font */}
           <h2
             className="absolute top-[648px] left-[349px] font-extralight text-black text-[65px] text-center tracking-[16.25px] leading-[normal]"
             style={{ fontFamily: "'Megrim', cursive" }}
           >
-            SHOOTS
+            {subtitle}
           </h2>
 
           <img
             className="absolute top-[649px] left-[81px] w-[893px] h-px object-cover"
             alt="Line"
-            src="/line-1.svg"
+            src={`${import.meta.env.VITE_IMAGE_BASE_URL}/line-1.svg`}
           />
 
           <div className="pt-1 absolute top-[506px] left-[1301px] [font-family:'Megrim',Helvetica] font-light text-black text-[28px] text-center tracking-[6.00px] leading-[normal]">
@@ -85,7 +119,7 @@ export const MaternityShoot = (): JSX.Element => {
             className=" pl-20 absolute top-[506px] flex justify-start  font-normal text-black text-[140px] text-center tracking-[30px] leading-[normal] whitespace-nowrap"
             style={{ fontFamily: "'Komorebi', sans-serif" }}
           >
-            MATERNITY
+            {title}
           </h1>
         </main>
       </div>
@@ -99,7 +133,7 @@ export const MaternityShoot = (): JSX.Element => {
               className="font-normal text-black text-[56px] tracking-[12px] "
               style={{ fontFamily: "'Komorebi', sans-serif" }}
             >
-              MATERNITY
+              {title}
             </span>
           </div>
 
@@ -109,7 +143,7 @@ export const MaternityShoot = (): JSX.Element => {
               className="font-extralight text-black text-[24px] tracking-[12px]"
               style={{ fontFamily: "'Megrim', cursive" }}
             >
-              SHOOTS
+              {subtitle}
             </h2>
           </div>
 
@@ -119,7 +153,7 @@ export const MaternityShoot = (): JSX.Element => {
             <div
               className="absolute top-[14px] left-[69px] w-[180px] h-[220px]"
               style={{
-                backgroundImage: "url(/ed_1.png)",
+                backgroundImage: `url(${import.meta.env.VITE_IMAGE_BASE_URL}/ed_1.png)`,
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
@@ -130,7 +164,7 @@ export const MaternityShoot = (): JSX.Element => {
             <div
               className="absolute top-[20px] left-[200px] w-[106px] h-[125px] rounded-tr-[600px] overflow-hidden"
               style={{
-                backgroundImage: "url(/frame-25.png)",
+                backgroundImage: `url(${import.meta.env.VITE_IMAGE_BASE_URL}/frame-25.png)`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
@@ -141,7 +175,7 @@ export const MaternityShoot = (): JSX.Element => {
             <div
               className="absolute top-[150px] left-[200px] w-[106px] h-[125px]"
               style={{
-                backgroundImage: "url(/frame-24.png)",
+                backgroundImage: `url(${import.meta.env.VITE_IMAGE_BASE_URL}/frame-24.png)`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
@@ -152,7 +186,7 @@ export const MaternityShoot = (): JSX.Element => {
             <div
               className="absolute top-[270px] left-[200px] w-[106px] h-[125px] rounded-br-[600px] overflow-hidden"
               style={{
-                backgroundImage: "url(/frame-26.png)",
+                backgroundImage: `url(${import.meta.env.VITE_IMAGE_BASE_URL}/frame-26.png)`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
@@ -177,7 +211,7 @@ export const MaternityShoot = (): JSX.Element => {
               className="font-light text-black text-[20px] tracking-[14px]"
               style={{ fontFamily: "'Megrim', cursive" }}
             >
-             MONTH SPECIAL
+              MONTH SPECIAL
             </h3>
           </div>
 

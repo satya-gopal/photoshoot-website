@@ -102,8 +102,15 @@
 //   );
 // };
 import React from "react";
+import { useContent } from "../../hooks/useContent";
+import { raw } from "express";
 
 export const ModelPhotoShoot = (): JSX.Element => {
+   const { getSection } = useContent();
+        const modelSection = getSection("model_shoot");
+        const rawTitle = modelSection?.title;
+        const rawDescription = modelSection?.description;
+        const rawContent = modelSection?.content;
   return (
     <div
       className="
@@ -125,37 +132,37 @@ export const ModelPhotoShoot = (): JSX.Element => {
           <img
             className="absolute top-[407px] left-[1149px] w-[291px] h-[407px] object-cover"
             alt="Model photo"
-            src="/frame-46.png"
+            src={`${import.meta.env.VITE_IMAGE_BASE_URL}/frame-46.png`}
           />
           <img
             className="absolute top-[504px] left-[816px] w-[333px] h-[208px] object-cover"
             alt="Model photo"
-            src="/frame-47.jpg"
+            src={`${import.meta.env.VITE_IMAGE_BASE_URL}/frame-47.jpg`}
           />
           <div className="absolute top-[674px] right-[75px] w-[560px] [font-family:'impact',Helvetica] font-normal text-neutral-100 text-[120px] tracking-[0.5rem]">
-            SHOOT
+            {rawContent || "SHOOT"}
           </div>
           <div className="absolute top-[-91px] left-[236px] w-[844px] h-[362px] flex items-center justify-center [font-family:'impact',Helvetica] font-normal text-[#ebe9e8] text-[230px]">
-            MODEL
+            {rawTitle || "MODEL"}
           </div>
           <img
             className="absolute top-[181px] left-[370px] w-[446px] h-[531px] object-cover"
             alt="Model photo"
-            src="/frame-48.png"
+            src={`${import.meta.env.VITE_IMAGE_BASE_URL}/frame-48.png`}
           />
           <div className="absolute top-[407px] left-0 w-[1149px] h-[98px] bg-[#ebe9e8]" />
           <div className="absolute top-[386px] left-[455px] [font-family:'impact',Helvetica] font-normal text-black text-[100px]">
-            PHOTO
+            {rawDescription || "PHOTO"}
           </div>
           <img
             className="absolute top-[181px] left-[816px] w-[331px] h-[226px] object-cover"
             alt="Model photo"
-            src="/frame-50.png"
+            src={`${import.meta.env.VITE_IMAGE_BASE_URL}/frame-50.png`}
           />
           <img
             className="absolute top-0 left-0 w-[370px] h-[407px] object-cover"
             alt="Model photo"
-            src="/frame-51.png"
+            src={`${import.meta.env.VITE_IMAGE_BASE_URL}/frame-51.png`}
           />
         </div>
 
@@ -164,15 +171,15 @@ export const ModelPhotoShoot = (): JSX.Element => {
           {/* Header Section */}
           <div className="text-center mb-6 sm:mb-8 md:mb-12">
             <h1 className="[font-family:'Lalezar',Helvetica] text-[#ebe9e8] text-5xl sm:text-6xl md:text-7xl mb-2">
-              MODEL
+              {rawTitle || "MODEL"}
             </h1>
             <div className="bg-[#ebe9e8] py-3 sm:py-4 md:py-5 px-4 sm:px-6 md:px-8 inline-block mx-auto">
               <span className="[font-family:'Lalezar',Helvetica] text-black text-3xl sm:text-4xl md:text-5xl">
-                PHOTO
+                {rawDescription || "PHOTO"}
               </span>
             </div>
             <h2 className="[font-family:'Lalezar',Helvetica] text-neutral-100 text-5xl sm:text-6xl md:text-7xl mt-2">
-              SHOOT
+              {rawContent || "SHOOT"}
             </h2>
           </div>
 
@@ -181,18 +188,18 @@ export const ModelPhotoShoot = (): JSX.Element => {
             <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5">
               <img
                 className="w-full h-40 sm:h-48 md:h-56 object-cover"
-                src="/frame-51.png"
+                src={`${import.meta.env.VITE_IMAGE_BASE_URL}/frame-51.png`}
               />
               <img
                 className="w-full h-40 sm:h-48 md:h-56 object-cover"
-                src="/frame-50.png"
+                src={`${import.meta.env.VITE_IMAGE_BASE_URL}/frame-50.png`}
               />
             </div>
 
             <div className="w-full">
               <img
                 className="w-full h-64  md:h-80 object-cover"
-                src="/frame-48.png"
+                src={`${import.meta.env.VITE_IMAGE_BASE_URL}/frame-48.png`}
                 style={{ objectPosition: "center 30%" }}
                 alt="Frame 48"
               />
@@ -201,11 +208,11 @@ export const ModelPhotoShoot = (): JSX.Element => {
             <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-5">
               <img
                 className="w-full h-36 sm:h-40 md:h-48 object-cover"
-                src="/frame-47.jpg"
+                src={`${import.meta.env.VITE_IMAGE_BASE_URL}/frame-47.jpg`}
               />
               <img
                 className="w-full h-36 sm:h-40 md:h-48 object-cover"
-                src="/frame-46.png"
+                src={`${import.meta.env.VITE_IMAGE_BASE_URL}/frame-46.png`}
               />
             </div>
           </div>

@@ -1,74 +1,3 @@
-// import { ArrowUpRight } from "lucide-react";
-// import { useState } from "react";
-// import { PreRegisterModal } from "../../components/preregistationmodal";
-
-// export const Hero = (): JSX.Element => {
-//   const [isModalOpen, setIsModalOpen] = useState(false);
-
-//   return (
-//     <section id="home" className="relative w-full bg-[#0d1c28] h-[813px]">
-//       {/* Header */}
-//       <header className="relative z-10 w-full bg-[#0d1c28]/70 backdrop-blur-sm shadow-md">
-//         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
-//           {/* Logo */}
-//           <div className="flex-shrink-0">
-//             <img
-//               src="/image.png"
-//               alt="Logo"
-//               className="h-[30px] sm:h-[38px] object-contain"
-//             />
-//           </div>
-
-//           {/* Buttons */}
-//           <div className="flex gap-2 sm:gap-4 items-center">
-//             <button
-//               type="button"
-//               className="px-3 sm:px-[31px] py-[6px] sm:py-[8px] rounded-lg bg-white border-0 hover:bg-gray-100 transition-colors"
-//             >
-//               <span className="font-['Poppins',Helvetica] font-semibold text-black text-sm sm:text-lg select-none">
-//                 MENU
-//               </span>
-//             </button>
-
-//             <button
-//               type="button"
-//               onClick={() => setIsModalOpen(true)}
-//               className="px-2 sm:px-[19px] py-[6px] sm:py-[8px] rounded-lg bg-white border-0 hover:bg-gray-100 transition-colors flex items-center gap-1 sm:gap-2 select-none"
-//             >
-//               <span className="font-['Poppins',Helvetica] font-semibold text-black text-xs sm:text-[17px] whitespace-nowrap">
-//                 PRE - REGISTER
-//               </span>
-//               <ArrowUpRight className="w-4 h-4 sm:w-[23px] sm:h-[23px]" />
-//             </button>
-//           </div>
-//         </div>
-//       </header>
-
-//       {/* Pre-Register Modal */}
-//       <PreRegisterModal
-//         isOpen={isModalOpen}
-//         onClose={() => setIsModalOpen(false)}
-//       />
-
-//       {/* Hero Content (Responsive Like Footer) */}
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 text-center mt-44">
-//         <h1
-//           className="font-light text-white text-3xl sm:text-5xl lg:text-[80px] leading-tight text-center select-none"
-//           style={{ fontFamily: "'TAN-PEARL', Helvetica" }}
-//         >
-//           Baby Shooting Zone
-//         </h1>
-
-//         <p
-//           className="mt-4 sm:mt-6 font-medium text-white text-base sm:text-xl tracking-[0.1em] leading-normal text-center select-none"
-//           style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-//         >
-//           Where Little Moments become Lifelong Memories
-//         </p>
-//       </div>
-//     </section>
-//   );
-// };
 
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
@@ -107,7 +36,7 @@ export const Hero = (): JSX.Element => {
           {/* Left: Logo */}
           <div className="flex-shrink-0 hidden md:block">
             <img
-              src="/image.png"
+              src={`${import.meta.env.VITE_IMAGE_BASE_URL}/image.png`}
               alt="Logo"
               className="h-[30px] md:h-[52px] object-contain"
             />

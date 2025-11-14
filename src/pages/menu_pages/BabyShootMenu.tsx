@@ -109,7 +109,7 @@ function BabyShootMenu() {
             {/* Right Section: Image */}
             <div className="w-[180px] h-auto">
               <img
-                src="/WEB_MEDIA/YES06599.JPG"
+                 src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/YES06599.JPG`}
                 alt="Baby shoot"
                 className="w-full h-full object-cover"
               />
@@ -141,7 +141,7 @@ function BabyShootMenu() {
         {/* Rotated image - hidden on mobile */}
         <div className="absolute top-[86px] right-[3%] w-48 h-64 rounded-xl shadow-2xl transform overflow-hidden">
           <img
-            src="/WEB_MEDIA/DSC02460.JPG"
+            src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/DSC02460.JPG`}
             alt="Baby photoshoot"
             className="w-full h-full object-cover"
           />
@@ -202,7 +202,7 @@ function BabyShootMenu() {
                   </div>
                   <div className="w-[150px] h-[120px]">
                     <img
-                      src="/WEB_MEDIA/YES06599.JPG"
+                      src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/YES06599.JPG`}
                       alt="Baby shoot"
                       className="w-full h-full object-cover"
                     />

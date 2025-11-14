@@ -84,7 +84,7 @@ function MaternityShootMenu() {
             {/* Right Section: Image */}
             <div className="w-[280px] h-[80px]">
               <img
-                src="/WEB_MEDIA/Screenshot 2025-10-15 at 11.23.18 AM.png"
+                src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/Screenshot 2025-10-15 at 11.23.18 AM.png`}
                 alt="Maternity shoot"
                 className="w-full h-full object-cover"
               />
@@ -116,7 +116,7 @@ function MaternityShootMenu() {
         {/* Rotated image - maternity illustration */}
         <div className="absolute top-[86px] right-[3%] w-64 h-72 rounded-xl shadow-2xl transform overflow-hidden flex items-center justify-center">
           <img
-            src="/WEB_MEDIA/maternity.png"
+            src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/maternity.png`}
             alt="Maternity illustration"
             className="w-full h-full object-cover"
           />
@@ -185,7 +185,7 @@ function MaternityShootMenu() {
                   </div>
                   <div className="w-[140px] h-[80px]">
                     <img
-                      src="/WEB_MEDIA/Screenshot 2025-10-15 at 11.23.18 AM.png"
+                      src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/Screenshot 2025-10-15 at 11.23.18 AM.png`}
                       alt="Maternity shoot"
                       className="w-full h-full object-cover"
                     />

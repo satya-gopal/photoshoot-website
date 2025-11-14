@@ -42,7 +42,7 @@
 //           <img
 //             className="w-full h-full object-cover"
 //             alt="Baby in chef attire grayscale"
-//             src="/frame-14.png"
+//             src={`${import.meta.env.VITE_IMAGE_BASE_URL}/frame-14.png`}
 //           />
 //         </section>
 //       </div>
@@ -54,8 +54,20 @@
 
 //
 import React from "react";
+import { useContent } from "../../hooks/useContent";
+
+export const formatText = (text: string) => text.replace(/\/n/g, "\n");
 
 export const BabyShoot = (): JSX.Element => {
+  const { getSection } = useContent();
+  const babyshootSection = getSection("babyshoot");
+  const rawTitle = babyshootSection?.title || `BABY/nSHOOTS`;
+  const rawDescription =
+    babyshootSection?.description ||
+    `RESERVE/nYOUR/nBABY'S/nFIRST/nMASTERPIECE`;
+
+  const title = formatText(rawTitle);
+  const description = formatText(rawDescription);
   return (
     <div
       id="babyshoot"
@@ -78,84 +90,105 @@ export const BabyShoot = (): JSX.Element => {
           <div className="absolute top-[444px] left-[553px] w-[85px] h-[370px] bg-[#b2b88a]" />
 
           {/* Right Frame Image */}
-          <div className="hidden xl:block absolute top-[-35px] left-[1122px] w-[314px] h-[814px] bg-[url(/frame-14.jpg)] bg-cover bg-[50%_50%]" />
+          <div
+            className="hidden xl:block absolute top-[-35px] left-[1122px] w-[314px] h-[814px] bg-cover bg-[50%_50%]"
+            style={{
+              backgroundImage: `url(${
+                import.meta.env.VITE_IMAGE_BASE_URL
+              }/frame-14.jpg)`,
+            }}
+          />
 
           {/* Main Content Section */}
           <div
             className="absolute top-[-63px] inset-0 flex flex-col items-center justify-center gap-10 overflow-hidden bg-cover bg-center z-10"
-            style={{ backgroundImage: "url('/frame-23.png')" }}
+            style={{
+              backgroundImage: `url(${
+                import.meta.env.VITE_IMAGE_BASE_URL
+              }/frame-23.png)`,
+            }}
           >
             <h1
-              className="font-semibold text-[#ffde59] text-[100px] md:text-[150px] text-center leading-[normal] pl-[150px] pb-10"
+              className="whitespace-pre-line font-semibold text-[#ffde59] text-[100px] md:text-[150px] text-center leading-[normal] pl-[150px] pb-10"
               style={{
                 fontFamily: "'ITC Bauhaus', Helvetica",
                 textShadow: "3px 3px 8px rgba(0, 0, 0, 0.3)", // x, y, blur, color
               }}
             >
-              BABY
-              <br />
-              SHOOTS
+              {title}
             </h1>
 
-            <p className="max-w-[700px] [font-family:'BDSans',Helvetica] text-[#545454] font-normal text-black text-2xl md:text-5xl text-center tracking-[5px] leading-[1.2] pl-[170px] pt-10 "
-            style={{
-              filter: `
+            <p
+              className=" whitespace-pre-line max-w-[700px] [font-family:'BDSans',Helvetica] text-[#545454] font-normal text-black text-2xl md:text-5xl text-center tracking-[5px] leading-[1.2] pl-[170px] pt-10 "
+              style={{
+                filter: `
                 drop-shadow(0 0 10px rgba(255, 255, 255, 0.7))
                 drop-shadow(0 0 20px rgba(255, 255, 255, 0.5))
               `,
-            }}
+              }}
             >
-              RESERVE <br />
-              YOUR <br />
-              BABY&apos;S <br />
-              FIRST <br />
-              MASTERPIECE
+              {description}
             </p>
           </div>
         </div>
       </div>
 
-    {/* ======= MOBILE VIEW ======= */}
-   <div className="flex flex-row w-full h-full md:hidden relative overflow-hidden">
+      {/* ======= MOBILE VIEW ======= */}
+      <div className="flex flex-row w-full h-full md:hidden relative overflow-hidden">
         {/* Left Side - Yellow/Gold Section */}
         <div className="w-[58%] h-full flex flex-col relative">
           {/* Top gradient section */}
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#c9b461] to-[#d4bd6a]" />
-          
+
           {/* Vertical divider strips at bottom */}
           {/* <div className="absolute top-[55%] left-0 w-[25%] h-[45%] bg-[#b5a157]" />
           <div className="absolute top-[55%] left-[25%] w-[25%] h-[45%] bg-[#c4ba7d]" />
           <div className="absolute top-[55%] left-[50%] w-[50%] h-[45%] bg-[#d4bd6a]" /> */}
-          
+
           {/* Text Content */}
           <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-2 pt-26">
-            <h1 
-              className="text-[#ffde59] text-[46px] leading-[0.85] font-bold text-center mb-10 "
+            <h1
+              className="whitespace-pre-line text-[#ffde59] text-[46px] leading-[0.85] font-bold text-center mb-10 "
               style={{
                 fontFamily: "'ITC Bauhaus', Helvetica",
                 textShadow: "3px 3px 8px rgba(0, 0, 0, 0.3)", // x, y, blur, color
               }}
             >
-              BABY<br />SHOOTS
+              {title}
             </h1>
-            <p className="text-[#fff15c] text-[14px] font-bold text-center tracking-[4px] leading-[1.8] opacity-90"
-               style={{ fontFamily: "'BDSans', Helvetica" }}>
-              RESERVE<br />
-              YOUR<br />
-              BABY&apos;S<br />
-              FIRST<br />
-              MASTERPIECE
+            <p
+              className="whitespace-pre-line text-[#fff15c] text-[14px] font-bold text-center tracking-[4px] leading-[1.8] opacity-90"
+              style={{ fontFamily: "'BDSans', Helvetica" }}
+            >
+              {description}
             </p>
           </div>
 
           {/* Bottom Baby Chef Image */}
+          <div
+            className="z-40 absolute bottom-0 left-0 w-full h-[30%] bg-cover"
+            style={{
+              backgroundImage: `url(${
+                import.meta.env.VITE_IMAGE_BASE_URL
+              }/frame-2322.png)`,
+              backgroundPosition: "65% center",
+            }}
+          />
         </div>
 
         {/* Center Vertical Divider Line */}
         <div className="absolute top-0 left-[52%] w-[6%] h-full bg-gradient-to-b from-[#b5a157] via-[#c4ba7d] to-[#b5a157] z-20" />
         {/* <div className="absolute top-0 left-[48%] w-[10%] h-full bg-gradient-to-b from-bg-[#ffde59] via-[#c4ba7d] to-[#b5a157] z-20" /> */}
         {/* Right Side - Large Baby Portrait */}
-        <div className="w-[42%] h-full bg-[url('/frame-14.jpg')] bg-cover grayscale-[30%]" style={{ backgroundPosition: '65% center' }} />
+        <div
+          className="w-[42%] h-full bg-cover grayscale-[30%]"
+          style={{
+            backgroundImage: `url(${
+              import.meta.env.VITE_IMAGE_BASE_URL
+            }/frame-14.jpg)`,
+            backgroundPosition: "65% center",
+          }}
+        />
       </div>
     </div>
   );

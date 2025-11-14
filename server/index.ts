@@ -5,7 +5,7 @@ import bcrypt from 'bcryptjs';
 import multer from 'multer';
 import path from 'path';
 import { db } from './db';
-import { admins, sections, images } from './schema';
+import { admins, sections, images, packages, reviews } from './schema';
 import { eq } from 'drizzle-orm';
 import { v4 as uuidv4 } from 'uuid';
 import fs from 'fs';
@@ -37,6 +37,10 @@ const upload = multer({ storage });
 const allowedOrigins = [
   'http://localhost:5000',
   'http://127.0.0.1:5000',
+  'http://localhost:5001',
+  'http://127.0.0.1:5001',
+  'http://localhost:5173',      // ✅ Add this
+  'http://127.0.0.1:5173',      // ✅ Add this
   'https://5331a89b-2c98-4155-a4a8-1440e1123b0a-00-18h3kkx7t2kx3.pike.replit.dev',
   process.env.REPLIT_DEV_DOMAIN ? `https://${process.env.REPLIT_DEV_DOMAIN}` : null,
 ].filter(Boolean);
@@ -290,6 +294,53 @@ app.delete('/api/images/:id', requireAuth, async (req, res) => {
     res.status(500).json({ error: 'Failed to delete image' });
   }
 });
+// packages
+app.get('/api/packages', async (req, res) => {
+  const data = await db.select().from(packages).orderBy(packages.order);
+  res.json(data);
+});
+
+app.post('/api/packages', requireAuth, async (req, res) => {
+  const [record] = await db.insert(packages).values(req.body).returning();
+  res.json(record);
+});
+
+app.put('/api/packages/:id', requireAuth, async (req, res) => {
+  const [record] = await db.update(packages)
+    .set(req.body)
+    .where(eq(packages.id, parseInt(req.params.id)))
+    .returning();
+  res.json(record);
+});
+
+app.delete('/api/packages/:id', requireAuth, async (req, res) => {
+  await db.delete(packages).where(eq(packages.id, parseInt(req.params.id)));
+  res.json({ success: true });
+});
+// reviews
+app.get('/api/reviews', async (req, res) => {
+  const data = await db.select().from(reviews);
+  res.json(data);
+});
+
+app.post('/api/reviews', requireAuth, async (req, res) => {
+  const [record] = await db.insert(reviews).values(req.body).returning();
+  res.json(record);
+});
+
+app.put('/api/reviews/:id', requireAuth, async (req, res) => {
+  const [record] = await db.update(reviews)
+    .set(req.body)
+    .where(eq(reviews.id, parseInt(req.params.id)))
+    .returning();
+  res.json(record);
+});
+
+app.delete('/api/reviews/:id', requireAuth, async (req, res) => {
+  await db.delete(reviews).where(eq(reviews.id, parseInt(req.params.id)));
+  res.json({ success: true });
+});
+
 
 app.listen(PORT, 'localhost', () => {
   console.log(`Backend server running on http://localhost:${PORT}`);

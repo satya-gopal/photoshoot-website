@@ -81,7 +81,7 @@ function NewBornShootMenu() {
             {/* Right Section: Image */}
             <div className="w-[180px] h-auto">
               <img
-                src="/WEB_MEDIA/newborn1.png"
+                src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/newborn1.png`}
                 alt="Maternity shoot"
                 className="w-full h-full object-cover"
               />
@@ -113,7 +113,7 @@ function NewBornShootMenu() {
         {/* Rotated image - maternity illustration */}
         <div className="absolute top-[86px] right-[5%] w-64  rounded-xl shadow-2xl transform overflow-hidden flex items-center justify-center">
           <img
-            src="/WEB_MEDIA/newborn.png"
+            src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/newborn.png`}
             alt="Maternity illustration"
             className="w-full h-full object-cover"
           />
@@ -185,7 +185,7 @@ function NewBornShootMenu() {
                   {/* Image Section */}
                   <div className="w-full ">
                     <img
-                      src="/WEB_MEDIA/newborn1.png"
+                      src={`${import.meta.env.VITE_IMAGE_BASE_URL}/WEB_MEDIA/newborn1.png`}
                       alt="newborn"
                       className="w-full h-full object-cover"
                     />
